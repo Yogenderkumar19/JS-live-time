@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+  background-color: #bedcfa;
+  color: #000;
+}
+.card {
+  background-color: #98acf8;
+  padding: 0.6rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 0.1rem;
+  border: transparent;
+}
+
+.date {
+  color: #353333;
+  font-size: 1.6rem;
+}
+  </style>
+</head>
+<body>
+  <script>
+    var today = new Date();
+var day = today.getDate();
+var month = today.getMonth() + 1;
+
+function appendZero(value) {
+    return "0" + value;
+}
+
+function theTime() {
+    var d = new Date();
+    document.getElementById("time").innerHTML = d.toLocaleTimeString("en-US");
+}
+
+if (day < 10) {
+    day = appendZero(day);
+}
+
+if (month < 10) {
+    month = appendZero(month);
+}
+
+today = day + "/" + month + "/" + today.getFullYear();
+
+document.getElementById("date").innerHTML = today;
+
+var myVar = setInterval(function () {
+    theTime();
+}, 1000);
+  </script>
+<div class="container">
+  <div class="row text-center">
+    <div class="col-12">
+      <div class="card">
+        <h1 id="time" class="time"></h1>
+        <h1 id="date" class="date"></h1>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
